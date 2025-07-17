@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Mein+Schatz&display=swap'); /* Si elle est disponible */
+
+.capsule{
+  background-color: white;
+  margin-left: 40px;
+  margin-right: 30px;
+  height:700px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  border-radius: 10px;
+  position: absolute;
+  top: 320px; /* Ajustez cette valeur selon vos besoins */
+  left: 0;
+  right: 0;
+  z-index: 20; /* Assurez-vous que la capsule soit au-dessus du header */
+ 
+  margin-bottom: 100px; /* Optionnel selon le rendu souhaité */
+  margin-top: 30px;
+}
+
+/* Appliquer la police 'Mein Schatz Regular' à tout le tableau */
+.table {
+  font-family: 'Mein Schatz', sans-serif; /* Applique la police "Mein Schatz" pour tout le tableau */
+  width: 100%; /* Prendre toute la largeur disponible */
+  background-color: white; /* Fond du tableau en blanc */
+  border-collapse: collapse; /* Fusionner les bordures */
+  margin-top: 30px; /* Espacement supérieur pour aérer */
+  table-layout: auto; 
+}
+
+/* Supprimer les bordures intérieures du tableau */
+.table th, .table td {
+  background-color: white; /* Fond blanc pour chaque cellule */
+  border: none; /* Supprimer les bordures internes */
+  padding: 10px; /* Espacement à l'intérieur des cellules */
+  text-align: center; /* Centrer le texte */
+  color: black; /* Texte en noir */
+  font-size: 15px; /* Taille de la police */
+  word-wrap: break-word;
+}
+
+/* Les en-têtes (th) sont en gras avec une taille de police égale aux td */
+.table th {
+  font-weight: bold; /* Mettre les titres en gras */
+  text-align: center;
+  padding: 12px 0; /* Ajout d'un peu plus de padding pour les titres */
+  font-size: 15px; /* Taille de la police des titres identique aux cellules */
+}
+
+/* Appliquer un fond blanc pour les lignes */
+.table tr {
+  background-color: white; /* Fond blanc pour chaque ligne */
+}
+
+/* Ligne sélectionnée avec fond gris clair */
+.table tr.selected {
+  background-color: #f0f0f0; /* Gris clair pour la ligne sélectionnée */
+}
+
+/* Appliquer un effet de survol avec fond gris clair */
+.table tr:hover {
+  background-color: #f0f0f0; /* Couleur de fond au survol */
+  cursor: pointer; /* Pointeur au survol */
+}
+
+/* Réactive le défilement avec le tableau */
+.table-wrapper-scroll-y {
+  max-height: 400px; 
+  overflow-y: auto;
+  margin-top: 150px; /* Ajoute un peu d'espace au-dessus */
+  overflow-x: auto;
+  margin-top: 20px;
+  
+}
+
+/* Suppression de toutes les bordures internes dans le tableau */
+.table th, .table td {
+  border: none;  /* Supprime la bordure d'en-tête */
+}
+
+.table td {
+  border: none; /* Supprime les bordures des cellules */
+}
+
+/* Appliquer un espacement entre les lignes du tableau */
+.table tr {
+  margin-bottom: 8px; /* Ajout d'un espacement entre les lignes */
+}
+
+@media (max-width: 768px) {
+  .capsule {
+    margin-left: 10px;
+    margin-right: 10px;
+    height: auto; /* Hauteur automatique selon le contenu */
+    top: auto; /* Ne pas forcer une position verticale absolue */
+    position: relative; /* Laisse la capsule suivre le flux normal */
+    margin-top: 20px;
+    margin-bottom: 40px;
+    padding: 15px; /* Ajoute un peu d’espace interne */
+  }
+
+  .table-wrapper-scroll-y {
+    max-height: none; /* Laisse le tableau grandir naturellement */
+    overflow-x: auto;
+  }
+
+  .table th,
+  .table td {
+    font-size: 13px; /* Réduire la taille de la police sur mobile */
+    padding: 8px;
+  }
+}
+

@@ -1,0 +1,88 @@
+/* Conteneur principal pour aligner le texte à gauche et les boutons à droite */
+.action-buttons-container {
+  display: flex;
+  flex-direction: column; /* Empiler les éléments verticalement */
+  width: 100%;
+}
+
+/* Icône avec un espacement à droite */
+.icon-custom {
+  font-size: 3rem; /* Taille de l'icône */
+  color: green; /* Couleur de l'icône */
+  text-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  margin-right: 15px; /* Marge entre l'icône et le texte */
+}
+
+/* Titre à gauche, taille et couleur professionnelle */
+.title-custom {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: green;
+  margin-bottom: 5px;
+}
+
+/* Description sous le titre, également à gauche */
+.description-custom {
+  font-size: 1rem;
+  font-style: italic;
+  margin-top: 0;
+  color: #333;
+  text-align: left; /* Aligné à gauche */
+  margin-top: 10px; /* Espacement entre le titre et la description */
+  margin-bottom: 1rem;
+}
+
+/* Disposition des boutons sous le texte et alignés à droite */
+.d-flex {
+  display: flex;
+  align-items: flex-start; /* Alignement à gauche pour icône et texte */
+}
+
+.d-flexx {
+  display: flex;
+  justify-content: flex-end; /* Les boutons sont alignés à droite */
+  gap: 10px; /* Espacement entre les boutons */
+  width: 100%; /* Les boutons prennent toute la largeur disponible */
+}
+
+/* Ajouter un espacement vertical entre le texte et les boutons */
+.mt-3 {
+  margin-top: 1rem; /* Ajouter de l'espace entre le texte et les boutons */
+}
+
+/* Réactivité pour les petits écrans */
+@media (max-width: 768px) {
+  /* Sur les petits écrans, empiler les éléments */
+  .action-buttons-container {
+    flex-direction: column;
+    align-items: flex-start; /* Tout aligné à gauche sur petits écrans */
+  }
+
+  .title-custom {
+    font-size: 1.5rem; /* Taille du titre plus petite */
+  }
+
+  .description-custom {
+    font-size: 0.9rem; /* Réduire la taille de la description */
+  }
+
+  .d-flexx {
+    justify-content: flex-start; /* Aligner les boutons à gauche sur les petits écrans */
+  }
+
+  button {
+    width: 100%; /* Les boutons prennent toute la largeur disponible */
+    margin-bottom: 10px; /* Espacement entre les boutons */
+  }
+}
+
+/* Sur les écrans plus larges, garder l'alignement à gauche du texte et à droite des boutons */
+@media (min-width: 769px) {
+  .d-flex {
+    flex-direction: row; /* Sur grands écrans, icône + texte alignés à gauche */
+  }
+
+  .d-flexx {
+    justify-content: flex-end; /* Boutons alignés à droite */
+  }
+}

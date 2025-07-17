@@ -1,0 +1,56 @@
+.table,
+.table th,
+.table td {
+  background-color: transparent !important;
+  color: inherit !important;
+  border: 1px solid #ddd !important;
+  box-shadow: none !important;
+}
+
+
+/* Général: Tableau */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    border: none !important;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);  /* Ajoute une légère ombre */
+    min-width: 600px;
+  }
+
+ 
+  .table td, .table th {
+    border: none !important;  /* Assure qu'il n'y a pas de bordures autour */
+  }
+
+  /* Centrer les entêtes et les mettre en gras */
+.table th {
+    font-family: Georgia, serif;
+    font-weight: bold !important;  /* Mettre les entêtes en gras */
+    text-align: center !important; /* Centrer le texte dans les entêtes */
+    padding: 12px 15px;   
+    color: black;  
+    border-bottom: 0.5px solid #000000 !important;      /* Espacement pour les entêtes */
+    margin-bottom: 500px !important;
+  }
+  
+  /* Rendre la table responsive */
+.table-wrapper-scroll-y {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Sur petits écrans : rendre les cellules plus petites */
+@media (max-width: 768px) {
+  .table th,
+  .table td {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .table th:first-child,
+  .table td:first-child {
+    min-width: 40px;
+  }
+}
