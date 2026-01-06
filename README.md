@@ -46,34 +46,36 @@ Créer une base de données PostgreSQL :
 CREATE DATABASE svs_db;
 ```
 Configurer le fichier src/main/resources/application.properties avec vos identifiants :
-
-Properties
-
+```bash
 spring.datasource.url=jdbc:postgresql://localhost:5432/svs_db
 spring.datasource.username=VOTRE_USER
 spring.datasource.password=VOTRE_MDP
 spring.jpa.hibernate.ddl-auto=update
+```
 Lancer le serveur Backend :
 
-Bash
-
+```bash
 mvn spring-boot:run
+```
 ### 3. Configuration du Frontend (React)
 Accéder au dossier client :
 
-Bash
+```bash
 
 cd client
+```
 Installer les dépendances :
 
-Bash
+```bash
 
 npm install
+```
 Lancer l'application :
 
-Bash
+```bash
 
 npm start
+```
 ### 📁 Structure du Projet
 Systeme_de_veille_service/
 ├── src/main/java/com/svs/        # Backend Spring Boot
