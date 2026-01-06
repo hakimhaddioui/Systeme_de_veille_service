@@ -105,3 +105,22 @@ Analyse des besoins (User Stories).
 Conception UML (Diagrammes de cas d’utilisation, séquences, classes).
 
 Sprints de développement itératif.
+
+👥 Équipe de Réalisation
+Développeurs : Hakim HADDIOUI & Aymane ELBOUFARHI
+
+Encadrant Pédagogique : M. Mohammed OUANAN (UPF)
+
+Encadrant Professionnel : M. Mohammed ZERROUKI (ONCF)
+
+
+---
+
+### 💡 Conseils supplémentaires pour finaliser :
+
+1.  **Vérifiez les noms des vidéos :** Remplacez `NOM_DE_TA_VIDEO_1.mp4` par le nom exact du fichier présent dans ton dossier `src/assets/Videos`.
+2.  **Ajoutez des Screenshots :** Juste avant la section "Fonctionnalités", ajoutez 2 ou 3 images (Dashboard, Formulaire) avec cette syntaxe :
+    `![Nom](./src/assets/screenshots/image.png)`
+3.  **Fichier `.gitignore` :** Assurez-vous que votre dossier `node_modules` et vos fichiers `.env` ne sont pas sur GitHub, cela ferait "amateur".
+
+Est-ce que cette version détaillée vous convient mieux ?
