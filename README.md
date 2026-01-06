@@ -4,10 +4,10 @@ Application web et mobile (PWA) pour la digitalisation du contrôle qualité de 
 
 ## 🎥 Démonstrations Vidéo
 
-| **Démo Technique & Métier (5 min)** | **Démo Interface Mobile & PWA (3 min)** |
+| **Démo Interface web et App globale ** | **Démo Interface Mobile & PWA** |
 | :--- | :--- |
-| Focus : Backend, Sécurité, Gestion KN1/2/3. | Focus : PWA, Responsive, Saisie FEI/FEM. |
-| [▶️ Voir la vidéo 1](src/assets/Videos/VOTRE_VIDEO_1.mp4) | [▶️ Voir la vidéo 2](src/assets/Videos/VOTRE_VIDEO_2.mp4) |
+| Focus : Fonctionnement global de l'application. | Focus : PWA pour la version mobile. |
+| [▶️ Voir la vidéo 1](src/assets/Videos/demo1.mp4) | [▶️ Voir la vidéo 2](src/assets/Videos/demo2.mp4) |
 
 ## 🚀 Fonctionnalités
 
@@ -30,34 +30,14 @@ Application web et mobile (PWA) pour la digitalisation du contrôle qualité de 
 - **PostgreSQL** 15 ou supérieur
 - **Maven** 3.x
 
-## 🔧 Installation
+## 🔧 Installation : FrontEnd
 
 ### 1. Cloner le projet
 ```bash
-git clone [https://github.com/hakimhaddioui/Systeme_de_veille_service.git](https://github.com/hakimhaddioui/Systeme_de_veille_service.git)
+git clone git clone https://github.com/hakimhaddioui/Systeme_de_veille_service.git
 cd Systeme_de_veille_service
 ```
-
-### 2. Configuration du Backend (Spring Boot)
-Créer une base de données PostgreSQL :
-
-```sql
-
-CREATE DATABASE svs_db;
-```
-Configurer le fichier src/main/resources/application.properties avec vos identifiants :
-```bash
-spring.datasource.url=jdbc:postgresql://localhost:5432/svs_db
-spring.datasource.username=VOTRE_USER
-spring.datasource.password=VOTRE_MDP
-spring.jpa.hibernate.ddl-auto=update
-```
-Lancer le serveur Backend :
-
-```bash
-mvn spring-boot:run
-```
-### 3. Configuration du Frontend (React)
+### 2. Configuration du Frontend (React)
 Accéder au dossier client :
 
 ```bash
@@ -76,50 +56,15 @@ Lancer l'application :
 
 npm start
 ```
-### 📁 Structure du Projet
-Systeme_de_veille_service/
-├── src/main/java/com/svs/        # Backend Spring Boot
-│   ├── controllers/              # API Rest Endpoints
-│   ├── models/                   # Entités JPA (FEI, FEM, User, etc.)
-│   ├── repositories/             # Interfaces Spring Data JPA
-│   ├── services/                 # Logique métier
-│   └── security/                 # Configuration JWT & Spring Security
-├── client/                       # Frontend React (PWA)
-│   ├── public/                   # Manifest PWA & Icons
-│   ├── src/
-│   │   ├── components/           # Composants réutilisables
-│   │   ├── pages/                # Vues (Dashboard, Formulaires FEI/FEM)
-│   │   ├── assets/               # CSS, Images et Vidéos
-│   │   └── services/             # Appels API (Axios)
-├── README.md                     # Ce fichier
-## Utilisation
-### 1. Évaluation Terrain
-Un contrôleur (KN1) se connecte via sa tablette (PWA).
-
-Il sélectionne un agent et remplit une fiche FEI.
-
-Les données sont synchronisées instantanément avec le serveur.
-
-### 2. Validation Hiérarchique
-Le responsable régional (KN2) consulte les évaluations et les valide.
-
-Le niveau central (KN3) accède aux rapports consolidés pour l'ensemble du réseau ONCF.
-
-### 3. Analyse & Synthèse
-Consultation du Dashboard pour identifier les gares ou agents nécessitant une action corrective.
-
-Exportation des fiches en PDF pour archivage ou réunion de coordination.
+  ## 🔧 Installation : BackEnd
+  [Pour le backend, veillez cliquer sur ce lien](src/assets/Videos/demo1.mp4)
 
 ### 🛠️ Technologies Utilisées
-Backend : Java 17, Spring Boot 3, Spring Security, JWT.
-
-Base de données : PostgreSQL.
-
-Frontend : React.js, Bootstrap 5, Chart.js.
-
-Mobile : Progressive Web App (PWA).
-
-Méthodologie : Agile (Scrum).
+- ✅ **Backend** : Java 17, Spring Boot 3, Spring Security, JWT.
+- ✅ **Base de données** : PostgreSQL.
+- ✅ **Frontend**: React.js, Bootstrap 5, Chart.js.
+- ✅ **Mobile** : Progressive Web App (PWA).
+- ✅ **Méthodologie**: Agile (Scrum).
 
 ### 📄 Licence
-Projet développé pour l'ONCF, Université Privée de Fès (UPF), Département Informatique, Système d'Information et Transformation Digitale.
+Projet développé pour l'ONCF, Département Informatique, Système d'Information et Transformation Digitale, Par ✅**HAKIM HADDIOUI**.
