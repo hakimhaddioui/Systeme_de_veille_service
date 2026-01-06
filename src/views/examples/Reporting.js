@@ -84,43 +84,132 @@ const Reporting = () => {
     }],
   };
 
-  const exportGlobalPDF = () => {
-    const doc = new jsPDF("landscape");
-    doc.setFontSize(14);
-    doc.text("Rapport Reporting global", 14, 10);
-    doc.text(`Période : ${startDate || '...'} → ${endDate || '...'}`, 14, 18);
-    doc.text(`Filtres: rôle = ${roleFilter || 'tous'} | utilisateur = ${userFilter?.label || 'tous'}`, 14, 26);
+// Reporting.js
 
-    autoTable(doc, {
-      startY: 32,
-      head: [["Utilisateur", "Rôle", "Date", "Score"]],
-      body: filtered.map(e => [
-        `${e.evalue?.nom} ${e.evalue?.prenom}`,
-        e.evalue?.role || "-",
-        moment(e.dateEvaluation).format("YYYY-MM-DD"),
-        e.noteTotale
-      ]),
-    });
+const exportGlobalPDF = () => {
+  const doc = new jsPDF("landscape");
 
-    doc.addPage();
-    const canvasLine = lineRef.current.firstChild;
-    const imgLine = canvasLine.toDataURL("image/png", 1.0);
-    doc.text("Evolution des scores", 14, 15);
-    doc.addImage(imgLine, "PNG", 14, 20, 130, 80);
+  // PAGE 1 - COUVERTURE
+  const logo = new Image();
+  logo.src = require("../../assets/img/brand/Logo-oncf.png");
+  doc.addImage(logo, "PNG", 120, 20, 50, 55);
+  doc.setFontSize(22);
+  doc.text("Rapport d’Évaluation", 115, 90);
+  doc.setFontSize(16);
+  doc.text(`Application SVS - Système de veille service`, 90, 100);
+  doc.setFontSize(12);
+  doc.text(`Généré le : ${moment().format("YYYY-MM-DD HH:mm")}`, 120, 110);
+  doc.addPage();
 
-    const canvasDoughnut = doughnutRef.current.firstChild;
-    const imgDoughnut = canvasDoughnut.toDataURL("image/png", 1.0);
-    doc.text("Répartition des rôles", 150, 15);
-    doc.addImage(imgDoughnut, "PNG", 150, 20, 130, 80);
+  // PAGE 2 - Résumé Exécutif (tableau stylisé)
+  doc.setFontSize(16);
+  doc.setTextColor(44, 62, 80);
+  doc.text("Résumé Exécutif", 14, 30);
+  doc.setFontSize(12);
+  autoTable(doc, {
+    startY: 40,
+    head: [["Élément", "Valeur"]],
+    body: [
+      ["Période analysée", `${startDate || '...'} → ${endDate || '...'}`],
+      ["Filtres appliqués", `rôle = ${roleFilter || 'tous'} | utilisateur = ${userFilter?.label || 'tous'}`],
+      ["Moyenne des scores", avgScore],
+      ["Utilisateur le plus performant", best],
+      ["Score le plus bas", worst],
+      ["Total d’évaluations", filtered.length],
+    ],
+    styles: { halign: "center", fontSize: 11 },
+    headStyles: { fillColor: [94, 114, 228], textColor: 255 },
+    alternateRowStyles: { fillColor: [245, 245, 245] },
+    tableLineColor: 200,
+    tableLineWidth: 0.2
+  });
 
-    doc.save("Reporting_global.pdf");
-  };
+  doc.addPage();
+
+  // PAGE 3 - Graphiques avec légendes
+  doc.setTextColor(44, 62, 80);
+  doc.setFontSize(16);
+  doc.text("Visualisation des performances", 14, 25);
+
+  const canvasLine = lineRef.current.firstChild;
+  const imgLine = canvasLine.toDataURL("image/png", 2.0);
+  doc.setFontSize(14);
+  doc.setTextColor(33, 37, 41);
+  doc.text("Évolution des scores", 53, 35);
+  doc.addImage(imgLine, "PNG", 14, 40, 130, 110);
+  doc.setFontSize(10);
+  doc.text("Les pics indiquent des évaluations intensives, les creux un manque d’activité.", 20, 155);
+
+  const canvasDoughnut = doughnutRef.current.firstChild;
+  const imgDoughnut = canvasDoughnut.toDataURL("image/png", 1.0);
+  doc.setFontSize(14);
+  doc.text("Répartition des rôles", 189, 35);
+  doc.addImage(imgDoughnut, "PNG", 150, 40, 130, 100);
+  doc.setFontSize(10);
+  const doughnutLegendY = 155;
+  doc.text("Ce graphique montre la proportion d’évaluations par rôle.", 170, doughnutLegendY);
+
+  // Proportions des rôles
+  let y = doughnutLegendY + 10;
+  const countsByRole = {};
+  filtered.forEach(e => {
+    const role = e.evalue?.role || "Non défini";
+    countsByRole[role] = (countsByRole[role] || 0) + 1;
+  });
+  Object.entries(countsByRole).forEach(([role, count]) => {
+    doc.text(`${role} : ${count} évaluations`, 195, y);
+    y += 6;
+  });
+
+  // PAGE 4 - Tableau principal
+  doc.addPage();
+  doc.setFontSize(14);
+  doc.setTextColor(44, 62, 80);
+  doc.text("Détail des évaluations", 14, 25);
+  autoTable(doc, {
+    startY: 30,
+    head: [["Utilisateur", "Rôle", "Date", "Score"]],
+    body: filtered.map(e => [
+      `${e.evalue?.nom} ${e.evalue?.prenom}`,
+      e.evalue?.role || "-",
+      moment(e.dateEvaluation).format("YYYY-MM-DD"),
+      e.noteTotale
+    ]),
+  });
+
+  // Mot de conclusion (sous tableau)
+  const afterTableY = doc.lastAutoTable.finalY + 20;
+  doc.setFontSize(12);
+  doc.setTextColor(0, 0, 0);
+  doc.text("Ce rapport a été généré automatiquement par le système de reporting SVS.", 14, afterTableY);
+  doc.text("Signature : ___________________", 220, afterTableY + 20);
+
+    // Ajouter un en-tête à partir de la 2ème page
+  const totalPagesBefore = doc.getNumberOfPages();
+  for (let i = 2; i <= totalPagesBefore; i++) {
+    doc.setPage(i);
+    doc.setFontSize(10);
+    doc.text("Rapport d’évaluation - SVS - ONCF", 120, 10);
+  }
+
+  // Citation en bas de chaque page
+  const totalPages = doc.getNumberOfPages();
+  for (let i = 1; i <= totalPages; i++) {
+    doc.setPage(i);
+    doc.setFontSize(10);
+    doc.setTextColor(150);
+    doc.text("« L’avenir se lit sur nos lignes »", 120, 200);
+  }
+
+  doc.save("Reporting_global.pdf");
+};
+
 
   if (loading) return <Spinner className="my-5" />;
 
   return (
     <Container fluid className="mt-4">
-      <h2>📊 Reporting avancé</h2>
+      <h2>Reporting avancé</h2>
 
       {/* Filtres */}
       <Card className="mb-4"><CardBody>

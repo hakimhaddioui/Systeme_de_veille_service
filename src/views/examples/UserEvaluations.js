@@ -209,8 +209,7 @@ const UserEvaluationsPage = () => {
             onEdit={handleEdit}
             onView={handleView}
             onDelete={handleDelete}
-            onSearchChange={(value) => setSearchTerm(value)}  // 🔍 Ajouté ici
-
+            onSearchChange={(value) => setSearchTerm(value)}
             title="Évaluations des utilisateurs"
             icon={<FaUserCheck />}
             description="Voici la liste des évaluations réalisées entre utilisateurs."
