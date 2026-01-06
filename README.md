@@ -32,11 +32,11 @@ Application web et mobile (PWA) pour la digitalisation du contrôle qualité de 
 
 ## 🔧 Installation
 
-### 1. Cloner le projet
 ```bash
 git clone [https://github.com/hakimhaddioui/Systeme_de_veille_service.git](https://github.com/hakimhaddioui/Systeme_de_veille_service.git)
 cd Systeme_de_veille_service
-2. Configuration du Backend (Spring Boot)
+
+### 2. Configuration du Backend (Spring Boot)
 Créer une base de données PostgreSQL :
 
 SQL
