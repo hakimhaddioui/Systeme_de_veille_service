@@ -32,16 +32,19 @@ Application web et mobile (PWA) pour la digitalisation du contrôle qualité de 
 
 ## 🔧 Installation
 
+### 1. Cloner le projet
 ```bash
 git clone [https://github.com/hakimhaddioui/Systeme_de_veille_service.git](https://github.com/hakimhaddioui/Systeme_de_veille_service.git)
 cd Systeme_de_veille_service
+```
 
 ### 2. Configuration du Backend (Spring Boot)
 Créer une base de données PostgreSQL :
 
-SQL
+```sql
 
 CREATE DATABASE svs_db;
+```
 Configurer le fichier src/main/resources/application.properties avec vos identifiants :
 
 Properties
@@ -55,7 +58,7 @@ Lancer le serveur Backend :
 Bash
 
 mvn spring-boot:run
-3. Configuration du Frontend (React)
+### 3. Configuration du Frontend (React)
 Accéder au dossier client :
 
 Bash
@@ -71,7 +74,7 @@ Lancer l'application :
 Bash
 
 npm start
-📁 Structure du Projet
+### 📁 Structure du Projet
 Systeme_de_veille_service/
 ├── src/main/java/com/svs/        # Backend Spring Boot
 │   ├── controllers/              # API Rest Endpoints
@@ -87,25 +90,25 @@ Systeme_de_veille_service/
 │   │   ├── assets/               # CSS, Images et Vidéos
 │   │   └── services/             # Appels API (Axios)
 ├── README.md                     # Ce fichier
-📊 Utilisation
-1. Évaluation Terrain
+## Utilisation
+### 1. Évaluation Terrain
 Un contrôleur (KN1) se connecte via sa tablette (PWA).
 
 Il sélectionne un agent et remplit une fiche FEI.
 
 Les données sont synchronisées instantanément avec le serveur.
 
-2. Validation Hiérarchique
+### 2. Validation Hiérarchique
 Le responsable régional (KN2) consulte les évaluations et les valide.
 
 Le niveau central (KN3) accède aux rapports consolidés pour l'ensemble du réseau ONCF.
 
-3. Analyse & Synthèse
+### 3. Analyse & Synthèse
 Consultation du Dashboard pour identifier les gares ou agents nécessitant une action corrective.
 
 Exportation des fiches en PDF pour archivage ou réunion de coordination.
 
-🛠️ Technologies Utilisées
+### 🛠️ Technologies Utilisées
 Backend : Java 17, Spring Boot 3, Spring Security, JWT.
 
 Base de données : PostgreSQL.
@@ -116,5 +119,5 @@ Mobile : Progressive Web App (PWA).
 
 Méthodologie : Agile (Scrum).
 
-📄 Licence
+### 📄 Licence
 Projet développé pour l'ONCF, Université Privée de Fès (UPF), Département Informatique, Système d'Information et Transformation Digitale.
