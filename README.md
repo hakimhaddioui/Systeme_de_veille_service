@@ -9,15 +9,15 @@ Le projet **SVS** a pour objectif de moderniser le suivi de la qualité de servi
 ## 🎥 Démonstrations Vidéo
 *Note : Si les vidéos ne s'affichent pas, vérifiez le chemin dans le dossier `src/assets/Videos`.*
 
-### 🔹 Démo 1 : Fonctionnalités & Processus Métier (5 min)
+### 🔹 Démo 1 : Fonctionnalités & Processus Métier
 *Présentation du Dashboard, gestion des fiches FEI/FEM et niveaux de contrôle KN1/KN2/KN3.*
 
-https://github.com/hakimhaddioui/Systeme_de_veille_service/raw/main/src/assets/Videos/VOTRE_VIDEO_1.mp4
+https://github.com/hakimhaddioui/Systeme_de_veille_service/raw/main/src/assets/Videos/demo1.mp4
 
-### 🔹 Démo 2 : Interface Mobile & PWA (3 min)
+### 🔹 Démo 2 : Interface Mobile & PWA
 *Démonstration de la réactivité de l'interface sur tablette et smartphone.*
 
-https://github.com/hakimhaddioui/Systeme_de_veille_service/raw/main/src/assets/Videos/VOTRE_VIDEO_2.mp4
+https://github.com/hakimhaddioui/Systeme_de_veille_service/raw/main/src/assets/Videos/demo2.mp4
 
 ---
 
